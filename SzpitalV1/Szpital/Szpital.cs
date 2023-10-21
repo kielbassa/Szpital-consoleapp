@@ -5,7 +5,7 @@
         public void Start()
         {
             Menu menu = new Menu();
-            menu.SetWindowSize();
+            menu.LoginScreen();
         }
     }
 }

@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\gosia\\OneDrive\\Pulpit\\Projekt C# Szpital\\SzpitalV1\\Szpital\\Szpital.csproj": {}
+    "C:\\Users\\gosia\\OneDrive\\Pulpit\\Projekt C# Szpital\\Szpital-consoleapp\\SzpitalV1\\Szpital\\Szpital.csproj": {}
   },
   "projects": {
-    "C:\\Users\\gosia\\OneDrive\\Pulpit\\Projekt C# Szpital\\SzpitalV1\\Szpital\\Szpital.csproj": {
+    "C:\\Users\\gosia\\OneDrive\\Pulpit\\Projekt C# Szpital\\Szpital-consoleapp\\SzpitalV1\\Szpital\\Szpital.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\gosia\\OneDrive\\Pulpit\\Projekt C# Szpital\\SzpitalV1\\Szpital\\Szpital.csproj",
+        "projectUniqueName": "C:\\Users\\gosia\\OneDrive\\Pulpit\\Projekt C# Szpital\\Szpital-consoleapp\\SzpitalV1\\Szpital\\Szpital.csproj",
         "projectName": "Szpital",
-        "projectPath": "C:\\Users\\gosia\\OneDrive\\Pulpit\\Projekt C# Szpital\\SzpitalV1\\Szpital\\Szpital.csproj",
+        "projectPath": "C:\\Users\\gosia\\OneDrive\\Pulpit\\Projekt C# Szpital\\Szpital-consoleapp\\SzpitalV1\\Szpital\\Szpital.csproj",
         "packagesPath": "C:\\Users\\gosia\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\gosia\\OneDrive\\Pulpit\\Projekt C# Szpital\\SzpitalV1\\Szpital\\obj\\",
+        "outputPath": "C:\\Users\\gosia\\OneDrive\\Pulpit\\Projekt C# Szpital\\Szpital-consoleapp\\SzpitalV1\\Szpital\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\gosia\\AppData\\Roaming\\NuGet\\NuGet.Config",
