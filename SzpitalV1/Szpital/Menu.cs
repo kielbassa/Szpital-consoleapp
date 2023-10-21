@@ -3,8 +3,10 @@
     public class Menu
     {
         SoundEffects sound = new SoundEffects();
+        ASCII_Graphics graphics = new ASCII_Graphics();
         int windowHeight = 30;
-        int windowWidth = 100;
+        int windowWidth = 100; // wartosc 100 zapewnia poprawne centrowanie interfejsu
+
         public void SetWindowSize()  // ustawianie odpowieniego rozmiaru okna konsoli ze sprawdzeniem czy nie jest wiekszy od dostepnego ekranu
         {
             
@@ -25,7 +27,7 @@
             SetWindowSize();
             Console.Clear();
             sound.StartJingle();
-            Console.WriteLine("menu!");
+            graphics.MainLogo();
         }
     }
 }
