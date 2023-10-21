@@ -1,0 +1,14 @@
+C:\Users\gosia\OneDrive\Pulpit\Projekt C# Szpital\SzpitalV1\Szpital\bin\Debug\net6.0\Szpital.exe
+C:\Users\gosia\OneDrive\Pulpit\Projekt C# Szpital\SzpitalV1\Szpital\bin\Debug\net6.0\Szpital.deps.json
+C:\Users\gosia\OneDrive\Pulpit\Projekt C# Szpital\SzpitalV1\Szpital\bin\Debug\net6.0\Szpital.runtimeconfig.json
+C:\Users\gosia\OneDrive\Pulpit\Projekt C# Szpital\SzpitalV1\Szpital\bin\Debug\net6.0\Szpital.dll
+C:\Users\gosia\OneDrive\Pulpit\Projekt C# Szpital\SzpitalV1\Szpital\bin\Debug\net6.0\Szpital.pdb
+C:\Users\gosia\OneDrive\Pulpit\Projekt C# Szpital\SzpitalV1\Szpital\obj\Debug\net6.0\Szpital.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\gosia\OneDrive\Pulpit\Projekt C# Szpital\SzpitalV1\Szpital\obj\Debug\net6.0\Szpital.AssemblyInfoInputs.cache
+C:\Users\gosia\OneDrive\Pulpit\Projekt C# Szpital\SzpitalV1\Szpital\obj\Debug\net6.0\Szpital.AssemblyInfo.cs
+C:\Users\gosia\OneDrive\Pulpit\Projekt C# Szpital\SzpitalV1\Szpital\obj\Debug\net6.0\Szpital.csproj.CoreCompileInputs.cache
+C:\Users\gosia\OneDrive\Pulpit\Projekt C# Szpital\SzpitalV1\Szpital\obj\Debug\net6.0\Szpital.dll
+C:\Users\gosia\OneDrive\Pulpit\Projekt C# Szpital\SzpitalV1\Szpital\obj\Debug\net6.0\refint\Szpital.dll
+C:\Users\gosia\OneDrive\Pulpit\Projekt C# Szpital\SzpitalV1\Szpital\obj\Debug\net6.0\Szpital.pdb
+C:\Users\gosia\OneDrive\Pulpit\Projekt C# Szpital\SzpitalV1\Szpital\obj\Debug\net6.0\Szpital.genruntimeconfig.cache
+C:\Users\gosia\OneDrive\Pulpit\Projekt C# Szpital\SzpitalV1\Szpital\obj\Debug\net6.0\ref\Szpital.dll
