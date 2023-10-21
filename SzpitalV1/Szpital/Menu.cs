@@ -6,20 +6,14 @@
         ASCII_Graphics graphics = new ASCII_Graphics();
 
         private int windowHeight = 30;
-        int windowWidth = 100; // wartosc 100 zapewnia poprawne centrowanie interfejsu
+        private int windowWidth = 100; // wartosc 100 zapewnia poprawne centrowanie interfejsu
 
-        public void ConsoleRefresh() // zamiast Console.Clear(), żeby nie było mrugania interfejsu
+        private void SetWindowSize()  // ustawianie odpowieniego rozmiaru okna konsoli ze sprawdzeniem czy nie jest wiekszy od dostepnego ekranu
         {
-            Console.ResetColor();
-            SetWindowSize();
-            Console.SetCursorPosition(0, 0);
-        }
-        public void SetWindowSize()  // ustawianie odpowieniego rozmiaru okna konsoli ze sprawdzeniem czy nie jest wiekszy od dostepnego ekranu
-        {
-            
+
             int maxWindowHeight = Console.LargestWindowHeight;
             int maxWindowWidth = Console.LargestWindowWidth;
-            if(maxWindowHeight > windowHeight || maxWindowWidth > windowWidth)
+            if (maxWindowHeight > windowHeight || maxWindowWidth > windowWidth)
             {
                 Console.SetWindowSize(windowWidth, windowHeight);
             }
@@ -29,12 +23,13 @@
                 Environment.Exit(1);
             }
         }
-        private void LoginScreenGraphic()
+        private void ConsoleRefresh() // zamiast Console.Clear(), żeby nie było mrugania interfejsu
         {
-            Console.Title = "Aplikacja Szpital";
-            graphics.MainLogo();
+            Console.ResetColor();
+            SetWindowSize();
+            Console.SetCursorPosition(0, 0);
         }
-
+        
         private int SelectedIndex;
         private string[] Options;
         private string Prompt;
@@ -70,11 +65,12 @@
         }
         public int Run()
         {
+            Console.CursorVisible = false;
             ConsoleKey KeyPressed;
             do
             {
                 ConsoleRefresh();
-                LoginScreenGraphic();
+                graphics.MainLogo();
                 DisplayOptions();
 
                 ConsoleKeyInfo KeyInfo= Console.ReadKey(true);
@@ -101,6 +97,9 @@
                 }
 
             } while (KeyPressed != ConsoleKey.Enter);
+            // po wciśnięciu klawisza ENTER
+            ConsoleRefresh();
+            Console.ResetColor();
             sound.StartJingle();
             return SelectedIndex;
         }
