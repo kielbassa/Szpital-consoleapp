@@ -23,7 +23,7 @@
                 Environment.Exit(1);
             }
         }
-        private void ConsoleRefresh() // zamiast Console.Clear(), żeby nie było mrugania interfejsu
+        public void ConsoleRefresh() // zamiast Console.Clear(), żeby nie było mrugania interfejsu
         {
             Console.ResetColor();
             SetWindowSize();
