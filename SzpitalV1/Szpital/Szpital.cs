@@ -18,7 +18,7 @@
 
             Menu mainMenu = new Menu(Prompt, Options);
 
-            int selectedIndex = mainMenu.Run(); // przywołuje klasę Run z Menu.cs
+            int selectedIndex = mainMenu.Run(); // przywołuje klasę Run z Menu.cs, która zwraca
 
             switch(selectedIndex) 
             {
@@ -34,7 +34,7 @@
                 case 3: // info
                     DisplayInfo();
                     break;
-                case 4: // info
+                case 4: // wyjście
                     ExitProgram();
                     break;
             }
@@ -55,7 +55,7 @@
         private void DisplayInfo()
         {
             Console.Clear();
-            Console.WriteLine("Aplikacja konsoli do wyświetlania bazy danych szpitali oraz rezerwowania wizyt lekarskich.");
+            Console.WriteLine("Aplikacja konsoli do wyświetlania bazy danych szpitali oraz rezerwowania wizyt lekarskich.\n");
             Console.WriteLine("Naciśnij klawisz, żeby wrócić do głównego Menu.");
             Console.ReadKey(true);
             sound.BackOption();
