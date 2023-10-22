@@ -4,8 +4,8 @@ namespace Program
 {
     class Szpital
     {
-        SoundEffects sound = new SoundEffects();
-        ASCII_Graphics graphics = new ASCII_Graphics();
+        readonly SoundEffects sound = new SoundEffects();
+        readonly ASCII_Graphics graphics = new ASCII_Graphics();
         public void Start()
         {
             sound.StartJingle();
@@ -23,7 +23,7 @@ namespace Program
 
             int selectedIndex = mainMenu.Run(); // przywołuje klasę Run z Menu.cs, która zwraca index wybranej opcji
 
-            switch(selectedIndex) 
+            switch (selectedIndex)
             {
                 case 0: // login
                     RunLoginScreen();

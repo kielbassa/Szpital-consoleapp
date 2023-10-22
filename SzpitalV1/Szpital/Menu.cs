@@ -2,11 +2,11 @@
 {
     public class Menu
     {
-        SoundEffects sound = new SoundEffects();
-        ASCII_Graphics graphics = new ASCII_Graphics();
+        readonly SoundEffects sound = new SoundEffects();
+        readonly ASCII_Graphics graphics = new ASCII_Graphics();
 
-        private int windowHeight = 30;
-        private int windowWidth = 100; // wartosc 100 zapewnia poprawne centrowanie interfejsu
+        private readonly int windowHeight = 30;
+        private readonly int windowWidth = 100; // wartosc 100 zapewnia poprawne centrowanie interfejsu
 
         private void SetWindowSize()  // ustawianie odpowieniego rozmiaru okna konsoli ze sprawdzeniem czy nie jest wiekszy od dostepnego ekranu
         {
@@ -29,10 +29,10 @@
             SetWindowSize();
             Console.SetCursorPosition(0, 0);
         }
-        
+
         private int SelectedIndex;
-        private string[] Options;
-        private string Prompt;
+        private readonly string[] Options;
+        private readonly string Prompt;
 
         public Menu(string prompt, string[] options)
         {
@@ -45,9 +45,9 @@
         {
             Console.WriteLine(Prompt);
             Console.WriteLine();
-            for(int indexer = 0; indexer < Options.Length; indexer++)
+            for (int indexer = 0; indexer < Options.Length; indexer++)
             {
-                if(indexer == SelectedIndex)
+                if (indexer == SelectedIndex)
                 {
                     Console.BackgroundColor = ConsoleColor.White;
                     Console.ForegroundColor = ConsoleColor.Green;
@@ -73,8 +73,8 @@
                 graphics.MainLogo();
                 DisplayOptions();
 
-                ConsoleKeyInfo KeyInfo= Console.ReadKey(true);
-                KeyPressed=KeyInfo.Key;
+                ConsoleKeyInfo KeyInfo = Console.ReadKey(true);
+                KeyPressed = KeyInfo.Key;
 
                 // odźwież wybrany index opcji SelectedIndex na podstawie klawiszy strzałek.
 
@@ -86,7 +86,8 @@
                     {
                         SelectedIndex = 0;
                     }
-                }else if (KeyPressed == ConsoleKey.UpArrow)
+                }
+                else if (KeyPressed == ConsoleKey.UpArrow)
                 {
                     sound.CycleOption();
                     SelectedIndex--;
