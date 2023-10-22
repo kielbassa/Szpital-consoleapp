@@ -2,7 +2,6 @@
 {
     public class ASCII_Graphics
     {
-
         public void MainLogo()
         {
             string MainLogo =
