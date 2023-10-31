@@ -23,7 +23,11 @@
         public void ConsoleRefresh() // zamiast Console.Clear(), żeby nie było mrugania interfejsu
         {
             Console.ResetColor();
-            SetWindowSize();
+
+            // safeguard w razie uruchamiania programu na innym systemie niż windows
+            if (System.OperatingSystem.IsWindows()) {
+                SetWindowSize();
+            }
             Console.SetCursorPosition(0, 0);
         }
 
