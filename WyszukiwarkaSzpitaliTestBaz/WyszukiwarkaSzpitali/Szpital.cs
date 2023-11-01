@@ -78,9 +78,9 @@ namespace Program
         private void GiveLoginDate()
         {
             Console.Clear();
-            Console.WriteLine("Podaj Login: ");
+            Console.Write("Podaj Login: ");
             string userLogin = Console.ReadLine();
-            Console.WriteLine("Podaj Hasło: ");
+            Console.Write("Podaj Hasło: ");
             string userPassword = Console.ReadLine();
 
             string connectionString = "Server=localhost;Database=szpitaltest;Uid=root;Pwd=;";   //dane bazy
@@ -121,9 +121,9 @@ namespace Program
         private void PasswordForgot()
         {
             Console.Clear();
-            Console.WriteLine("Podaj Login: ");
+            Console.Write("Podaj Login: ");
             string userLogin = Console.ReadLine();
-            Console.WriteLine("Podaj PIN: ");
+            Console.Write("Podaj PIN: ");
             string userPin = Console.ReadLine();
 
             string connectionString = "Server=localhost;Database=szpitaltest;Uid=root;Pwd=;";
@@ -202,13 +202,13 @@ namespace Program
         {
             Console.Clear();
 
-            Console.WriteLine("Podaj nowy login:");
+            Console.Write("Podaj nowy login: ");
             string newLogin = Console.ReadLine();
-            Console.WriteLine("Podaj nowe hasło:");
+            Console.Write("Podaj nowe hasło: ");
             string newPassword = Console.ReadLine();
-            Console.WriteLine("Powtórz nowe hasło:");
+            Console.Write("Powtórz nowe hasło: ");
             string newPasswordRepeat = Console.ReadLine();
-            Console.WriteLine("Podaj nowy PIN (musi zawierać dokładnie 4 cyfry):");
+            Console.Write("Podaj nowy PIN (musi zawierać dokładnie 4 cyfry): ");
             string newPin = Console.ReadLine();
 
             if (newPin.Length == 4 && newPassword == newPasswordRepeat)
