@@ -708,8 +708,6 @@ namespace Program
 
             connection.Open();
 
-            int i = 0;
-
             string query = "SELECT H.name AS HospitalName, H.location AS HospitalLocation, W.name AS WardName, V.* FROM Hospitals H JOIN Information I ON H.ID = I.HospitalID JOIN Wards W ON I.WardID = W.ID JOIN Visits V ON I.ID = V.InformationID WHERE H.name = '"+name+"' AND W.name = '"+ward+"';";
             cmd = new MySqlCommand(query, connection);
 
