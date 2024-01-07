@@ -59,6 +59,7 @@
             else
             {
                 Console.WriteLine("Skala konsoli nie może być ustawiona");
+                sound.StopJingle(Szpital.soundToggle);
                 Environment.Exit(1);
             }
         }
@@ -114,12 +115,19 @@
             this.options[index] = row;
         }
 
-        public int Run()
+        public int Run(int startOptionNumber) //startOptionNumber = opcja z której ma rozpocząć się selekcja (0 domyślnie)
         {
             Console.CursorVisible = false;
             ConsoleKey KeyPressed;
+
+            if (startOptionNumber != 0)
+            {
+                SelectedIndex = startOptionNumber;
+            }
+
             do
             {
+                
                 ConsoleRefresh();
                 graphics.MainLogo();
                 DisplayOptions();
@@ -131,7 +139,6 @@
 
                 if (KeyPressed == ConsoleKey.DownArrow)
                 {
-                    //sound.CycleOption();
                     SelectedIndex++;
                     if (SelectedIndex == options.Count)
                     {
@@ -140,7 +147,6 @@
                 }
                 else if (KeyPressed == ConsoleKey.UpArrow)
                 {
-                    //sound.CycleOption();
                     SelectedIndex--;
                     if (SelectedIndex == -1)
                     {
