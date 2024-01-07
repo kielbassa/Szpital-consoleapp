@@ -2,28 +2,39 @@
 {
     public class SoundEffects
     {
-        public void StartJingle()
+        public void StartJingle(bool soundToggle)
         {
-            Console.Beep(300, 100);
-            Console.Beep(600, 100);
-            Console.Beep(1200, 200);
+            if (soundToggle) {
+                Console.Beep(300, 100);
+                Console.Beep(600, 100);
+                Console.Beep(1200, 200);
+            }
         }
-        public void CycleOption()
+        public void CycleOption(bool soundToggle)
         {
-            Console.Beep(400, 50);
-            Console.Beep(800, 80);
+            if(soundToggle) {
+                Console.Beep(400, 50);
+                Console.Beep(800, 80);
+            }
+            
         }
-        public void BackOption()
+        public void BackOption(bool soundToggle)
         {
-            Console.Beep(600, 50);
-            Console.Beep(300, 100);
+            if(soundToggle) {
+                Console.Beep(600, 50);
+                Console.Beep(300, 100);
+            }
+            
         }
-        public void StopJingle()
+        public void StopJingle(bool soundToggle)
         {
-            Console.Beep(1000, 100);
-            Console.Beep(600, 100);
-            Console.Beep(300, 100);
-            Console.Beep(150, 200);
+            if (soundToggle) {
+                Console.Beep(1000, 100);
+                Console.Beep(600, 100);
+                Console.Beep(300, 100);
+                Console.Beep(150, 200);
+            }
+            
         }
     }
 }

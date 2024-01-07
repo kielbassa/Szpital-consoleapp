@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "FaZ1fPv/kEV9wwUpcpsX7j011Y+h48PnQiRtlbZ79K1HlZCSw6AeECOFw7BpWMbX/slDdM6++mNkACtm+fvO4w==",
+  "dgSpecHash": "GMBg5GOFN5yTwuugfxDAy9e+broS2GnbzudsbeE4C0l5bbj76PhgUwn7O7MeiGhIj+ondPoEBWXZsZJqxFBDFQ==",
   "success": true,
-  "projectFilePath": "C:\\Users\\gosia\\OneDrive\\Pulpit\\Projekt C# Szpital\\Szpital-consoleapp-ProgramBezBajerowGraficznych\\Szpital-consoleapp-main\\WyszukiwarkaSzpitaliTestBaz\\WyszukiwarkaSzpitali\\WyszukiwarkaSzpitali.csproj",
+  "projectFilePath": "C:\\Users\\gosia\\OneDrive\\Pulpit\\Projekt C# Szpital\\Szpital-consoleapp\\Szpital-consoleapp-main\\WyszukiwarkaSzpitaliTestBaz\\WyszukiwarkaSzpitali\\WyszukiwarkaSzpitali.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\gosia\\.nuget\\packages\\google.protobuf\\3.21.9\\google.protobuf.3.21.9.nupkg.sha512",
     "C:\\Users\\gosia\\.nuget\\packages\\k4os.compression.lz4\\1.3.5\\k4os.compression.lz4.1.3.5.nupkg.sha512",

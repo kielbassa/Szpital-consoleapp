@@ -1783,11 +1783,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\gosia\\OneDrive\\Pulpit\\Projekt C# Szpital\\Szpital-consoleapp-ProgramBezBajerowGraficznych\\Szpital-consoleapp-main\\WyszukiwarkaSzpitaliTestBaz\\WyszukiwarkaSzpitali\\WyszukiwarkaSzpitali.csproj",
+      "projectUniqueName": "C:\\Users\\gosia\\OneDrive\\Pulpit\\Projekt C# Szpital\\Szpital-consoleapp\\Szpital-consoleapp-main\\WyszukiwarkaSzpitaliTestBaz\\WyszukiwarkaSzpitali\\WyszukiwarkaSzpitali.csproj",
       "projectName": "WyszukiwarkaSzpitali",
-      "projectPath": "C:\\Users\\gosia\\OneDrive\\Pulpit\\Projekt C# Szpital\\Szpital-consoleapp-ProgramBezBajerowGraficznych\\Szpital-consoleapp-main\\WyszukiwarkaSzpitaliTestBaz\\WyszukiwarkaSzpitali\\WyszukiwarkaSzpitali.csproj",
+      "projectPath": "C:\\Users\\gosia\\OneDrive\\Pulpit\\Projekt C# Szpital\\Szpital-consoleapp\\Szpital-consoleapp-main\\WyszukiwarkaSzpitaliTestBaz\\WyszukiwarkaSzpitali\\WyszukiwarkaSzpitali.csproj",
       "packagesPath": "C:\\Users\\gosia\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\gosia\\OneDrive\\Pulpit\\Projekt C# Szpital\\Szpital-consoleapp-ProgramBezBajerowGraficznych\\Szpital-consoleapp-main\\WyszukiwarkaSzpitaliTestBaz\\WyszukiwarkaSzpitali\\obj\\",
+      "outputPath": "C:\\Users\\gosia\\OneDrive\\Pulpit\\Projekt C# Szpital\\Szpital-consoleapp\\Szpital-consoleapp-main\\WyszukiwarkaSzpitaliTestBaz\\WyszukiwarkaSzpitali\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\gosia\\AppData\\Roaming\\NuGet\\NuGet.Config",

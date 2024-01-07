@@ -2,6 +2,9 @@
 {
     public class Menu
     {
+        SoundEffects sound = new SoundEffects();
+        ASCII_Graphics graphics = new ASCII_Graphics();
+
         private readonly int windowHeight = 30;
         private readonly int windowWidth = 100; // wartosc 100 zapewnia poprawne centrowanie interfejsu
         private int SelectedIndex;
@@ -118,6 +121,7 @@
             do
             {
                 ConsoleRefresh();
+                graphics.MainLogo();
                 DisplayOptions();
 
                 ConsoleKeyInfo KeyInfo = Console.ReadKey(true);
@@ -127,6 +131,7 @@
 
                 if (KeyPressed == ConsoleKey.DownArrow)
                 {
+                    //sound.CycleOption();
                     SelectedIndex++;
                     if (SelectedIndex == options.Count)
                     {
@@ -135,6 +140,7 @@
                 }
                 else if (KeyPressed == ConsoleKey.UpArrow)
                 {
+                    //sound.CycleOption();
                     SelectedIndex--;
                     if (SelectedIndex == -1)
                     {

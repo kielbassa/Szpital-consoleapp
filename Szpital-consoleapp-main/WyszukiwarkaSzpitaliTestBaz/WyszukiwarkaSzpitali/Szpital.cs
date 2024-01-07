@@ -45,7 +45,9 @@
 using System.ComponentModel;
 using System.Data;
 using System.Globalization;
+using System.IO;
 using System.Reflection.Metadata;
+using System.Runtime.CompilerServices;
 
 using MySql.Data.MySqlClient;
 
@@ -53,16 +55,23 @@ namespace Program
 {
     class Szpital
     {
+        //kod wykonujacy sie na samym poczatku
+
+        SoundEffects sound = new SoundEffects();
+        ASCII_Graphics graphics = new ASCII_Graphics();
+
         // Nadanie tutułu konsoli
 
         public User LoggedUser = new User();
-
+        
+        static bool soundToggle;
         public void Start()
         {
+            SetSoundPreferences(); //sprawdza zawartość pliku Preferences.txt i ustawia odpowiednio zmienną soundToggle
+            sound.StartJingle(soundToggle);
             Console.Title = "Aplikacja Szpital";
             RunMainMenu();
         }
-
 
 
         // Menu główne służące do logowania, rejestracji, dostepu gościa oraz opuszczenia aplikacji
@@ -71,8 +80,17 @@ namespace Program
         {
             Console.Clear();
 
+            string soundToggleSelectionText;
+            if(soundToggle) {
+                soundToggleSelectionText = "Wycisz dźwięki Menu";
+            }
+            else
+            {
+                soundToggleSelectionText = "Włącz dźwięki Menu";
+            }
+
             string Prompt = "Witaj w wielkiej bazie polskich szpitali! Wybierz opcję klikając klawisz ENTER:";
-            string[] Options = { "Zaloguj się", "Zarejestruj się", "Dostęp gościa", "Info", "Wyjdź z aplikacji" };
+            string[] Options = { "Zaloguj się", "Zarejestruj się", "Dostęp gościa", "Info", soundToggleSelectionText, "Wyjdź z aplikacji" };
 
             Menu mainMenu = new Menu(Prompt, Options);
 
@@ -87,12 +105,15 @@ namespace Program
                     RegisterScreen();
                     break;
                 case 2: // dostęp gościa
-                    Szukaj();
+                    SearchBase();
                     break;
                 case 3: // info
                     DisplayInfo();
                     break;
-                case 4: // wyjście
+                case 4: // dzwięki menu
+                    ToggleSound();
+                    break;
+                case 5: // wyjście
                     ExitProgram();
                     break;
             }
@@ -104,6 +125,7 @@ namespace Program
 
         private void RunLoginScreen() // panel logowania
         {
+            sound.CycleOption(soundToggle);
             Console.Clear();
             string Prompt = "Wybierz opcję klikając klawisz ENTER:";
             string[] Options = { "Logowanie", "Zapomniałem hasła", "Wróć" };
@@ -120,7 +142,7 @@ namespace Program
                     PasswordForgot();
                     break;
                 case 2: // wróc do głównego ekranu
-                    Console.Clear();
+                    sound.BackOption(soundToggle);
                     RunMainMenu();
                     break;
             }
@@ -128,9 +150,12 @@ namespace Program
 
         private void GiveLoginDate() // logowanie
         {
+            graphics.MainLogo();
             Console.Clear();
             string userLogin = askUser("Podaj Login: ");
+            sound.CycleOption(soundToggle);
             string userPassword = askUser("Podaj Hasło: ");
+            sound.CycleOption(soundToggle);
 
             MySqlConnection connection = GetMySqlConnection();                                  //połączenie z bazą
             MySqlCommand cmd = new MySqlCommand();                                              //połączenie z bazą
@@ -154,6 +179,7 @@ namespace Program
             if (userExists)
             {
                 Console.Clear();
+                sound.StartJingle(soundToggle);
                 Console.WriteLine("Witaj {0} {1}!", LoggedUser.Imie, LoggedUser.Nazwisko);
                 Console.ReadKey();
                 BrowserForLogged();
@@ -173,7 +199,9 @@ namespace Program
         {
             Console.Clear();
             string userLogin = askUser("Podaj Login: ");
+            sound.CycleOption(soundToggle);
             string userPin = askUser("Podaj PIN: ");
+            sound.CycleOption(soundToggle);
 
             MySqlConnection connection = GetMySqlConnection();
             MySqlCommand cmd = new MySqlCommand();
@@ -205,8 +233,9 @@ namespace Program
             else
             {
                 Console.Clear();
-                Console.WriteLine("Podane dane są nieprawidłowe!");
+                Console.WriteLine("Podane dane są nieprawidłowe!    (Wciśnij dowolny przycisk)");
                 Console.ReadKey();
+                sound.BackOption(soundToggle);
                 RunLoginScreen();
             }
         }
@@ -240,6 +269,7 @@ namespace Program
             }
 
             Console.ReadKey();
+            sound.BackOption(soundToggle);
             RunLoginScreen();
 
             connection.Close();
@@ -249,6 +279,7 @@ namespace Program
 
         private void RegisterScreen()  // rejestracja
         {
+            sound.CycleOption(soundToggle);
             Console.Clear();
 
             string newLogin = askUser("Podaj nowy login: ");
@@ -291,6 +322,7 @@ namespace Program
                                     Console.Clear();
                                     Console.WriteLine("Konto zostało pomyślnie utworzone!");
                                     Console.ReadKey();
+                                    sound.BackOption(soundToggle);
                                     RunLoginScreen();
                                 }
                                 else
@@ -312,8 +344,9 @@ namespace Program
             {
                 Console.Clear();
                 Console.WriteLine("Nieprawidłowy PIN lub hasła nie są identyczne.");
+                sound.BackOption(soundToggle);
             }
-
+            Console.WriteLine("Wciśnij dowolny klawisz");
             Console.ReadKey();
         }
 
@@ -321,17 +354,21 @@ namespace Program
 
         private void DisplayInfo() // informacje o aplikacji
         {
+            sound.CycleOption(soundToggle);
             Console.Clear();
             Console.WriteLine("Aplikacja konsoli do wyświetlania bazy danych szpitali oraz rezerwowania wizyt lekarskich.");
             Console.WriteLine("Autorstwa: Karol Lademan, Dawid Laskowski, Karol Narel, Tomasz Papierowski");
             Console.WriteLine("\nNaciśnij klawisz, żeby wrócić do głównego Menu.");
             Console.ReadKey(true);
+            sound.BackOption(soundToggle);
+            RunMainMenu();
         }
 
-
+        
 
         private void ExitProgram() // wyjście z aplikacji
         {
+            sound.StopJingle(soundToggle);
             Console.Clear();
             Environment.Exit(0);
         }
@@ -355,7 +392,7 @@ namespace Program
                 switch (selectedIndex)
                 {
                     case 0: // wyszukiwarka
-                        Szukaj();
+                        SearchBase();
                         break;
                     case 1: // sprawdz moje wizyty
                         MojeWizyty();
@@ -364,6 +401,7 @@ namespace Program
                         SignUp();
                         break;
                     case 3: // wróć do ekranu głównego
+                        sound.BackOption(soundToggle);
                         LoggedUser.Logged = "no";
                         RunMainMenu();
                         break;
@@ -373,9 +411,9 @@ namespace Program
 
 
 
-        private void Szukaj() // opcja szukaj dostępna zarówno dla użytkowników zalogowanych jak i niezalogowanych
+        private void SearchBase() // opcja szukaj dostępna zarówno dla użytkowników zalogowanych jak i niezalogowanych
         {
-
+            sound.CycleOption(soundToggle);
             Console.Clear();
 
             string Prompt = "Jakie miasto Cie interesuje? Wybierz opcję klikając klawisz ENTER:";
@@ -388,21 +426,22 @@ namespace Program
             switch (selectedIndex)
             {
                 case 0:
-                    SzukajPoMiescie("Kraków");
+                    CitySearch("Kraków");
                     break;
                 case 1:
-                    SzukajPoMiescie("Łódź");
+                    CitySearch("Łódź");
                     break;
                 case 2:
-                    SzukajPoMiescie("Poznań");
+                    CitySearch("Poznań");
                     break;
                 case 3:
-                    SzukajPoMiescie("Warszawa");
+                    CitySearch("Warszawa");
                     break;
                 case 4:
-                    SzukajPoMiescie("Wrocław");
+                    CitySearch("Wrocław");
                     break;
                 case 5:
+                    sound.BackOption(soundToggle);
                     if (LoggedUser.Logged == "yes")
                     {
                         BrowserForLogged();
@@ -418,7 +457,7 @@ namespace Program
 
 
 
-        private void SzukajPoMiescie(string cityName) // funkcja wykonawsza dla opcji Szukaj()
+        private void CitySearch(string cityName) // funkcja wykonawcza dla opcji SearchBase
         {
             Console.Clear();
 
@@ -464,13 +503,14 @@ namespace Program
                 }
             }
             Console.ReadKey();
-            Szukaj();
+            SearchBase();
         }
 
 
 
         private void MojeWizyty() // wyświetlenie wizyt dla zalogowanego użytkownika
         {
+            sound.CycleOption(soundToggle);
             Console.Clear();
 
             using (MySqlConnection connection = GetMySqlConnection())
@@ -520,6 +560,7 @@ namespace Program
 
         private void SignUp() // zapisane się na wizytę
         {
+            sound.CycleOption(soundToggle);
             Console.Clear();
 
             string city = " ";
@@ -549,6 +590,7 @@ namespace Program
                     city = "Wrocław";
                     break;
                 case 5:
+                    sound.BackOption(soundToggle);
                     BrowserForLogged();
                     break;
             }
@@ -589,6 +631,8 @@ namespace Program
 
             connection.Close();
 
+            sound.CycleOption(soundToggle);
+
             string name = " ";
 
             string Prompt = "Jakie szpital Cie interesuje? Wybierz opcję klikając klawisz ENTER:";
@@ -616,6 +660,7 @@ namespace Program
                     name = hospital[4];
                     break;
                 case 5:
+                    sound.BackOption(soundToggle);
                     BrowserForLogged();
                     break;
             }
@@ -659,6 +704,8 @@ namespace Program
 
             connection.Close();
 
+            sound.CycleOption(soundToggle);
+
             string Prompt = "Jakie oddział Cie interesuje? Wybierz opcję klikając klawisz ENTER:";
             string[] Options = { wards[0], wards[1], wards[2], wards[3], wards[4], "Wróć" };
 
@@ -684,6 +731,7 @@ namespace Program
                     ward = wards[4];
                     break;
                 case 5:
+                    sound.BackOption(soundToggle);
                     BrowserForLogged();
                     break;
             }
@@ -710,6 +758,8 @@ namespace Program
 
             string query = "SELECT H.name AS HospitalName, H.location AS HospitalLocation, W.name AS WardName, V.* FROM Hospitals H JOIN Information I ON H.ID = I.HospitalID JOIN Wards W ON I.WardID = W.ID JOIN Visits V ON I.ID = V.InformationID WHERE H.name = '"+name+"' AND W.name = '"+ward+"';";
             cmd = new MySqlCommand(query, connection);
+
+            sound.CycleOption(soundToggle);
 
             Console.WriteLine("Oto lista terminów, które są zajęte:");
 
@@ -748,6 +798,7 @@ namespace Program
             if (count > 0)
             {
                 Console.WriteLine("Podana data jest zajęta!");
+                sound.BackOption(soundToggle);
                 Console.ReadKey();
             }
             else
@@ -806,6 +857,52 @@ namespace Program
             string connectionString = "Server=localhost;Database=test3;Uid=root;Pwd=;";   
             MySqlConnection connection = new MySqlConnection(connectionString);                
             return connection;
+        }
+
+
+        // funckje odpowiadajace za szate dzwiekowa programu
+
+        private void ToggleSound()
+        {
+            string toggle;
+            if (soundToggle)
+            {
+                soundToggle = false;
+                toggle = "false";
+            }
+            else
+            {
+                soundToggle = true;
+                toggle = "true";
+            }
+
+            using (StreamWriter writer = new StreamWriter("Preferences.txt"))
+            {
+                writer.Write(toggle);
+            }
+
+            sound.CycleOption(soundToggle);
+            RunMainMenu();
+        }
+        private void SetSoundPreferences()
+        {
+            if (ReadPreferences("Preferences.txt") == "true")
+            {
+                soundToggle = true;
+            }
+
+            if (ReadPreferences("Preferences.txt") == "false")
+            {
+                soundToggle = false;
+            }
+        }
+
+        private string ReadPreferences(string fileName)
+        {
+            using (var sr = new StreamReader(fileName))
+            {
+                return sr.ReadToEnd(); //zwraca zawartosc pliku o nazwie fileName
+            }
         }
     }
 }
