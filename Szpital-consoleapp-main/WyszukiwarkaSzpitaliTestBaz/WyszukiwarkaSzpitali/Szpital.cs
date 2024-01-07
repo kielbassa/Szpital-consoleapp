@@ -839,7 +839,7 @@ namespace Program
             Console.WriteLine();
             sound.CycleOption(soundToggle);
             Console.WriteLine("Wpisz termin, który Cię interesuje:");
-            Console.WriteLine("(Termin należy wpisać w konstrukcji Amerykańskiej, tj. YYYY-MM-DD)");
+            Console.WriteLine("(Termin należy wpisać w formacie RRRR-MM-DD)");
             string userDate = askUser("Podaj datę: ");
 
             Console.Clear();
