@@ -19,4 +19,4 @@ jobs:
 #   - name: Build
 #     run: dotnet build SzpitalV1
     - name: Build
-      run: dotnet build WyszukiwarkaSzpitaliTestBaz
+      run: dotnet build WyszukiwarkaSzpitali
